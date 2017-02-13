@@ -32,6 +32,7 @@ machine:
     BRANCH: $(echo $CIRCLE_BRANCH | grep -v '^\(master\|[0-9]\+.x\)$')
     PR_LABEL: ${BRANCH:+pr-$BRANCH}
     CI_LABEL: ci-$CIRCLE_BUILD_NUM
+    TERMINUS_SITE: mothership
     TERMINUS_TOKEN: 0riXdjYYzCZnHxVkpyDqIVpEl4xhErWYBX8PvaPayevpH
     TERMINUS_ENV: $(echo ${PR_LABEL:-$CI_LABEL} | cut -c -11 | sed 's/-$//')
     NOTIFY: 'scripts/github/add-commit-comment {project} {sha} "Created multidev environment [{site}#{env}]({dashboard-url})." {site-url}'
